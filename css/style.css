@@ -151,7 +151,7 @@ input {
     
     /* L'effet clé : ombres extérieure pour l'impression de relief */
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), 
-                -8px -8px 16px rgba(255, 255, 255, 0.3);
+                -8px -8px 16px rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 

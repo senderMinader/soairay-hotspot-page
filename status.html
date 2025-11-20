@@ -7,7 +7,7 @@ $(endif)
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="expires" content="-1">
-<title>Internet hotspot - Status</title>
+<title>Statut de connexion</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -37,35 +37,35 @@ $(endif)
 <body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)>
     <div class="ie-fixMinHeight">
         <div class="main">
-            <div class="wrap">
+            <div class="wrap fadeIn login-card">
                 $(if login-by == 'trial')
-                    <h1>Hi, trial user!</h1>
+                    <h1>Bonjour, votre essai se passe bien?</h1>
                 $(elif login-by != 'mac')
-                    <h1>Hi, $(username)!</h1>
+                    <h1>Bonjour, votre nom d'utilisateur est $(username)</h1>
                 $(endif)                
 
                 <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
                     <table>
-                        <tr><td>IP address</td><td>$(ip)</td></tr>
-                        <tr><td>Bytes up / down</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+                        <tr><td>Adresse IP</td><td>$(ip)</td></tr>
+                        <tr><td>Données envoyées / reçues</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
                     $(if session-time-left)
-                        <tr><td>Connected / left</td><td>$(uptime) / $(session-time-left)</td></tr>
+                        <tr><td>Temps écoulés / restants</td><td>$(uptime) / $(session-time-left)</td></tr>
                     $(else)
-                        <tr><td>Connected</td><td>$(uptime)</td></tr>
+                        <tr><td>Connecté depuis</td><td>$(uptime)</td></tr>
                     $(endif)
                     $(if blocked == 'yes')
-                        <tr><td>Status</td><td>
+                        <tr><td>Statut</td><td>
                     <a href="$(link-advert)" target="hotspot_advert">Advertisement required</a></td>
                         </tr>
                     $(elif refresh-timeout)
-                        <tr><td>Status refresh</td><td>$(refresh-timeout)</td></tr>
+                        <tr><td>Mise à jour dans</td><td>$(refresh-timeout)</td></tr>
                     $(endif)
                         </table>
                     $(if login-by-mac != 'yes')
                     <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
                     <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
                     <!-- end of user manager link -->
-                    <input type="submit" value="Log out">
+                    <input type="submit" role="button" class="soft-ui-button" value="Se Deconnecter">
                     $(endif)
                 </form>
             </div>

@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="expires" content="-1">
-<title>Internet hotspot - Log out</title>
+<title>Deconnexion</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -23,22 +23,22 @@
 <body>
     <div class="ie-fixMinHeight">
         <div class="main">
-            <div class="wrap">
-                <h1>You have just logged out!</h1> 
+            <div class="wrap login-card">
+                <h1>Vous êtes deconnecté!</h1> 
                 <table>  
-                    <tr><td>Username</td><td>$(username)</td></tr>
-                    <tr><td>IP address</td><td>$(ip)</td></tr>
-                    <tr><td>MAC address</td><td>$(mac)</td></tr>
-                    <tr><td>Session time</td><td>$(uptime)</td></tr>
+                    <tr><td>Nom d'utilisateur</td><td>$(username)</td></tr>
+                    <tr><td>Adresse IP</td><td>$(ip)</td></tr>
+                    <tr><td>Adresse MAC</td><td>$(mac)</td></tr>
+                    <tr><td>Durée de session</td><td>$(uptime)</td></tr>
                     $(if session-time-left)
-                    <tr><td>Time left</td><td>$(session-time-left)</td></tr>
+                    <tr><td>Temps restant</td><td>$(session-time-left)</td></tr>
                     $(endif)
-                    <tr><td>Bytes up / down:</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+                    <tr><td>Données envoyées / reçues:</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
                 </table>
 
 
                 <form action="$(link-login)" name="login" onSubmit="return openLogin()">
-                <input type="submit" value="Log in">
+                <input type="submit" role="button" class="soft-ui-button" value="Se reconnecter">
                 </form>
             </div>
         </div>
